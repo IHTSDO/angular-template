@@ -17,6 +17,9 @@ import { SnomedFooterComponent } from './components/snomed-footer/snomed-footer.
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { AuthoringService } from './services/authoring/authoring.service';
 
+// PROVIDER IMPORTS
+import { EnvServiceProvider } from './providers/env.service.provider';
+
 // SERVICE IMPORTS
 
 
@@ -36,6 +39,7 @@ import { AuthoringService } from './services/authoring/authoring.service';
     providers: [
         AuthenticationService,
         AuthoringService,
+        EnvServiceProvider,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HeaderInterceptor,

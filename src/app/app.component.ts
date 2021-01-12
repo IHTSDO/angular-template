@@ -3,6 +3,7 @@ import 'jquery';
 import { Title } from '@angular/platform-browser';
 import { AuthoringService } from './services/authoring/authoring.service';
 import { BranchingService } from './services/branching/branching.service';
+import { EnvService } from './services/environment/env.service';
 
 @Component({
     selector: 'app-root',
@@ -16,13 +17,14 @@ export class AppComponent implements OnInit {
 
     constructor(private authoringService: AuthoringService,
                 private branchingService: BranchingService,
+                private envService: EnvService,
                 private titleService: Title) {
 
     }
 
     ngOnInit() {
         this.titleService.setTitle('SNOMED CT Angular Template');
-        this.environment = window.location.host.split(/[.]/)[0].split(/[-]/)[0];
+        this.environment = this.envService.env;
 
         this.authoringService.getVersions().subscribe(versions => {
             this.versions = versions;
