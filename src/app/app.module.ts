@@ -19,6 +19,7 @@ import { AuthoringService } from './services/authoring/authoring.service';
 
 // PROVIDER IMPORTS
 import { EnvServiceProvider } from './providers/env.service.provider';
+import {ToastrModule} from 'ngx-toastr';
 
 // SERVICE IMPORTS
 
@@ -34,7 +35,8 @@ import { EnvServiceProvider } from './providers/env.service.provider';
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        NgbTypeaheadModule
+        NgbTypeaheadModule,
+        ToastrModule.forRoot(),
     ],
     providers: [
         AuthenticationService,

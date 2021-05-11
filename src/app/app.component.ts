@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { AuthoringService } from './services/authoring/authoring.service';
 import { BranchingService } from './services/branching/branching.service';
 import { EnvService } from './services/environment/env.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-root',
@@ -14,10 +15,15 @@ export class AppComponent implements OnInit {
 
     versions: object;
     environment: string;
+    toastrConfig = {
+        closeButton: true,
+        disableTimeOut: true
+    };
 
     constructor(private authoringService: AuthoringService,
                 private branchingService: BranchingService,
                 private envService: EnvService,
+                private toastr: ToastrService,
                 private titleService: Title) {
 
     }
@@ -36,6 +42,27 @@ export class AppComponent implements OnInit {
 
         this.branchingService.setBranchPath('MAIN');
         this.assignFavicon();
+
+    }
+
+    toastrSuccess() {
+        this.toastr.success('Message data goes here', 'SUCCESS', this.toastrConfig);
+    }
+
+    toastrWarning() {
+        this.toastr.warning('Message data goes here', 'WARNING', this.toastrConfig);
+    }
+
+    toastrError() {
+        this.toastr.error('Message data goes here', 'ERROR', this.toastrConfig);
+    }
+
+    toastrInfo() {
+        this.toastr.info('Message data goes here', 'INFO', this.toastrConfig);
+    }
+
+    toastrShow() {
+        this.toastr.show('Message data goes here', 'SHOW', this.toastrConfig);
     }
 
     assignFavicon() {
