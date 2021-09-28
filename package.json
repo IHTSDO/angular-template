@@ -5,6 +5,7 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "build:prod": "ng build --configuration production",
         "test": "jest",
         "lint": "ng lint",
         "test:watch": "jest --watch"
