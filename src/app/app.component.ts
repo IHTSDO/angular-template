@@ -6,6 +6,9 @@ import { BranchingService } from './services/branching/branching.service';
 import { EnvService } from './services/environment/env.service';
 import { ToastrService } from 'ngx-toastr';
 import {StatusPageService} from './services/statusPage/status-page.service';
+import {Observable} from 'rxjs';
+import {catchError, debounceTime, distinctUntilChanged, switchMap, tap, filter, map} from 'rxjs/operators';
+import {TerminologyServerService} from './services/terminologyServer/terminology-server.service';
 
 @Component({
     selector: 'app-root',
@@ -22,14 +25,30 @@ export class AppComponent implements OnInit {
     };
 
     scheduledAlerts: any[] = [];
+    basicTypeahead: string;
+    spinner = document.createElement('div');
+
+    search = (text$: Observable<string>) => text$.pipe(
+        debounceTime(300),
+        filter((text) => text.length > 2),
+        distinctUntilChanged(),
+        tap(() => document.activeElement.parentElement.appendChild(this.spinner)),
+        switchMap(term => this.terminologyService.getTypeahead(term)
+            .pipe(tap(() => document.getElementById('spinner').remove()))
+        )
+    )
 
     constructor(private authoringService: AuthoringService,
                 private branchingService: BranchingService,
                 private envService: EnvService,
                 private toastr: ToastrService,
                 private titleService: Title,
-                private statusService: StatusPageService) {
-
+                private statusService: StatusPageService,
+                private terminologyService: TerminologyServerService) {
+        this.spinner.id = 'spinner';
+        this.spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-slate-grey', 'position-absolute');
+        this.spinner.style.top = '7px';
+        this.spinner.style.right = '7px';
     }
 
     ngOnInit() {

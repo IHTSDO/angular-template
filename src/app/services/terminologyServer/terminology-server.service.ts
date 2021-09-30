@@ -20,7 +20,7 @@ export class TerminologyServerService {
         this.branchPathSubscription = this.branchingService.getBranchPath().subscribe(data => this.branchPath = data);
     }
 
-    getTypeahead(term) {
+    getTypeahead(term): Observable<any> {
         const params = {
             termFilter: term,
             limit: 20,
