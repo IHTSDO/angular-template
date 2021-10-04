@@ -35,7 +35,8 @@ export class AppComponent implements OnInit {
         tap(() => document.activeElement.parentElement.appendChild(this.spinner)),
         switchMap(term => this.terminologyService.getTypeahead(term)
             .pipe(tap(() => document.getElementById('spinner').remove()))
-        )
+        ),
+        catchError(tap(() => document.getElementById('spinner').remove()))
     )
 
     constructor(private authoringService: AuthoringService,
