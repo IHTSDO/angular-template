@@ -44,6 +44,14 @@ $slate-grey: #708090;
     background-color: $slate-grey;
 }
 
+$dark: #56606A;
+.text-dark {
+    color: $dark;
+}
+.bg-dark {
+    background-color: $dark;
+}
+
 $river-bed: #434A55;
 .text-river-bed {
     color: $river-bed;

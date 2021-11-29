@@ -67,8 +67,8 @@ export class AppComponent implements OnInit {
         this.branchingService.setBranchPath('MAIN');
         this.assignFavicon();
 
-        this.checkSchedule();
-        setInterval(() => this.checkSchedule(), 60000);
+        // this.checkSchedule();
+        // setInterval(() => this.checkSchedule(), 60000);
     }
 
     checkSchedule() {
