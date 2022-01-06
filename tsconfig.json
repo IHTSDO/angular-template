@@ -18,7 +18,8 @@
         "paths": {
             "core-js/es7/reflect": [
                 "node_modules/core-js/proposals/reflect-metadata"
-            ]
+            ],
+            "snomed-ecl-builder": [ "node_modules/snomed-ecl-builder/output/ecl-builder.js"]
         }
     }
 }
