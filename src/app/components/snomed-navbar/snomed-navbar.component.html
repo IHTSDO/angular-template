@@ -9,7 +9,7 @@
             <a class="nav-link px-3 rounded dropdown-toggle text-end" id="branchDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{activeBranch?.branchPath}}
             </a>
-            <div class="dropdown-menu py-0" aria-labelledby="branchDropdown">
+            <div class="dropdown-menu" aria-labelledby="branchDropdown">
                 <ng-container *ngFor="let branch of branches | alphabetical:'branchPath' | branch:projects">
                     <a class="dropdown-item ps-3" [routerLink]="[branch.branchPath]" (click)="setBranch(branch)">{{branch?.branchPath}}</a>
                 </ng-container>
@@ -20,7 +20,7 @@
             <a class="nav-link px-3 rounded dropdown-toggle text-end" id="projectDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [class.add]="!activeProject?.key">
                 {{activeProject?.key ? activeProject.key : 'PROJECT'}}
             </a>
-            <div class="dropdown-menu py-0" aria-labelledby="projectDropdown">
+            <div class="dropdown-menu" aria-labelledby="projectDropdown">
                 <ng-container *ngFor="let project of projects | alphabetical:'key' | project:activeBranch">
                     <a class="dropdown-item ps-3" [routerLink]="[activeBranch.branchPath, project.key]" (click)="setProject(project)">{{project?.key}}</a>
                 </ng-container>
@@ -34,7 +34,7 @@
             <a class="nav-link px-3 rounded dropdown-toggle text-end" id="taskDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [class.add]="!activeTask?.key">
                 {{activeTask?.key ? activeTask.key : 'TASK'}}
             </a>
-            <div class="dropdown-menu py-0" aria-labelledby="taskDropdown">
+            <div class="dropdown-menu" aria-labelledby="taskDropdown">
                 <ng-container *ngIf="tasks.length">
                     <ng-container *ngFor="let task of tasks | alphabetical:'key'">
                         <a class="dropdown-item ps-3" [routerLink]="[activeBranch.branchPath, activeProject.key, task.key]" (click)="setTask(task)">{{task?.key}}</a>

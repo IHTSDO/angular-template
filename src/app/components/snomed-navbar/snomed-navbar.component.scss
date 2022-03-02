@@ -11,6 +11,7 @@ nav {
 
         span.title {
             font-weight: 300;
+            color: $alto-white;
             letter-spacing: 1.5px;
             line-height: 4rem;
             vertical-align: top;
@@ -73,7 +74,7 @@ nav {
                 font-size: 1.4rem;
                 height: 3rem;
                 color: $white;
-                background-color: $dark;
+                background-color: $bootstrap-dark;
                 line-height: 2rem;
                 font-weight: 300;
                 letter-spacing: 0.2rem;
@@ -85,11 +86,15 @@ nav {
 
                 &.loading {
                     min-width: unset;
+
+                    div {
+                        color: $alto-white;
+                    }
                 }
             }
 
             div.dropdown-menu {
-                background-color: $dark;
+                background-color: $bootstrap-dark;
                 z-index: auto;
                 height: auto;
                 overflow-y: scroll;
@@ -104,7 +109,7 @@ nav {
                     z-index: auto;
 
                     &:hover {
-                        background-color: darken($dark, 10%);
+                        background-color: darken($bootstrap-dark, 10%);
                         cursor: pointer;
                     }
                 }
@@ -113,6 +118,7 @@ nav {
     }
 
     div.user {
+        color: $alto-white;
         height: 3rem;
         font-size: 1.2rem;
 
@@ -129,6 +135,7 @@ nav {
     }
 
     div.logout {
+        color: $alto-white;
         cursor: pointer;
         height: 3rem;
 

@@ -6,19 +6,7 @@
     <base href="/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script type="text/javascript" src="node_modules/snomed-ecl-builder/output/ecl-builder.js"></script>
-    <script>
-        function openEclBuilder(eclString) {
-
-            $("body").append("<ecl-builder id='ecl-builder' branch=" + "MAIN" + " api-url='/snowstorm/snomed-ct' ecl-string='" + eclString + "'></ecl-builder>");
-
-            const el = document.querySelector('ecl-builder');
-            el.addEventListener('output', e => {
-                $('#fh-query_canvas-ExpText').val(e.detail);
-            });
-        }
-    </script>
+    <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 <app-root></app-root>

@@ -27,6 +27,10 @@ import {BranchPipe} from './pipes/branch/branch.pipe';
 import {ProjectPipe} from './pipes/project/project.pipe';
 import {AppRoutingModule} from './app-routing.module';
 import {ModalService} from './services/modal/modal.service';
+import {ModalComponent} from './components/modal/modal.component';
+import {LeftSidebarComponent} from './components/left-sidebar/left-sidebar.component';
+import {TextFilterPipe} from './pipes/text-filter/text-filter.pipe';
+import {ConceptService} from './services/concept/concept.service';
 
 // SERVICE IMPORTS
 
@@ -38,7 +42,10 @@ import {ModalService} from './services/modal/modal.service';
         SnomedFooterComponent,
         AlphabeticalPipe,
         BranchPipe,
-        ProjectPipe
+        ProjectPipe,
+        ModalComponent,
+        LeftSidebarComponent,
+        TextFilterPipe
     ],
     imports: [
         BrowserModule,
@@ -55,6 +62,7 @@ import {ModalService} from './services/modal/modal.service';
         StatusPageService,
         ModalService,
         PathingService,
+        ConceptService,
         EnvServiceProvider,
         {
             provide: HTTP_INTERCEPTORS,

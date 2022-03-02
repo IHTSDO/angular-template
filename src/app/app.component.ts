@@ -9,6 +9,8 @@ import {StatusPageService} from './services/statusPage/status-page.service';
 import {Observable} from 'rxjs';
 import {catchError, debounceTime, distinctUntilChanged, switchMap, tap, filter, map} from 'rxjs/operators';
 import {TerminologyServerService} from './services/terminologyServer/terminology-server.service';
+import {ModalService} from './services/modal/modal.service';
+import {ConceptService} from './services/concept/concept.service';
 
 @Component({
     selector: 'app-root',
@@ -20,8 +22,7 @@ export class AppComponent implements OnInit {
     versions: object;
     environment: string;
     toastrConfig = {
-        closeButton: true,
-        disableTimeOut: true
+        closeButton: true
     };
 
     scheduledAlerts: any[] = [];
@@ -45,9 +46,11 @@ export class AppComponent implements OnInit {
                 private toastr: ToastrService,
                 private titleService: Title,
                 private statusService: StatusPageService,
-                private terminologyService: TerminologyServerService) {
+                private terminologyService: TerminologyServerService,
+                private modalService: ModalService,
+                private conceptService: ConceptService) {
         this.spinner.id = 'spinner';
-        this.spinner.classList.add('spinner-border', 'spinner-border-sm', 'text-slate-grey', 'position-absolute');
+        this.spinner.classList.add('spinner-border', 'spinner-border-sm', 'position-absolute');
         this.spinner.style.top = '7px';
         this.spinner.style.right = '7px';
     }
@@ -62,6 +65,10 @@ export class AppComponent implements OnInit {
 
         this.authoringService.getUIConfiguration().subscribe(config => {
             this.authoringService.uiConfiguration = config;
+
+            this.conceptService.httpGetExampleConcepts('138875005').subscribe(data => {
+                this.conceptService.setConcepts(data);
+            });
         });
 
         this.branchingService.setBranchPath('MAIN');
@@ -69,6 +76,22 @@ export class AppComponent implements OnInit {
 
         // this.checkSchedule();
         // setInterval(() => this.checkSchedule(), 60000);
+    }
+
+    openModal(id: string): void {
+        this.modalService.open(id);
+    }
+
+    closeModal(id: string): void {
+        this.modalService.close(id);
+    }
+
+    delete(): void {
+        this.toastr.error('This doesn\'t really delete anything', 'DELETE', this.toastrConfig);
+    }
+
+    save(): void {
+        this.toastr.success('This doesn\'t really save anything', 'SAVE', this.toastrConfig);
     }
 
     checkSchedule() {

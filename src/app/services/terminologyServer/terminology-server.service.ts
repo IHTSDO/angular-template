@@ -45,4 +45,9 @@ export class TerminologyServerService {
         return this.http.get<object>(this.authoringService.uiConfiguration.endpoints.terminologyServerEndpoint + this.branchPath
             + '/concepts/' + id);
     }
+
+    getConceptChildren(id): Observable<any> {
+        return this.http.get<object>(this.authoringService.uiConfiguration.endpoints.terminologyServerEndpoint + this.branchPath
+            + '/concepts/' + id + '/children');
+    }
 }

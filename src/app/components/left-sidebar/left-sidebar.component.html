@@ -1,0 +1,9 @@
+<nav id="sidebar" class="footer-margin">
+    <div class="header row g-0">
+        <h3 class="p-3 mb-0">Concepts</h3>
+        <input type="search" class="searchbar py-2 px-3" [(ngModel)]="textFilter" placeholder="Search for Reports...">
+    </div>
+    <ng-container *ngFor="let concept of concepts | textFilter:textFilter">
+        <div class="py-2 px-3 concept">{{concept.pt.term}}</div>
+    </ng-container>
+</nav>
