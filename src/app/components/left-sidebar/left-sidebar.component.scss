@@ -29,6 +29,17 @@ nav#sidebar {
         }
     }
 
+    a.chapter {
+        cursor: pointer;
+        border-bottom: 1px $ghost-grey solid;
+        background-color: $alto-white;
+        color: $river-bed;
+
+        &:hover {
+            background-color: darken($alto-white, 5%);
+        }
+    }
+
     div.concept {
         cursor: pointer;
         border-bottom: 1px $ghost-grey solid;

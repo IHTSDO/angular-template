@@ -14,6 +14,17 @@ export class LeftSidebarComponent implements OnInit {
     concepts: any;
     conceptsNotesSubscription: Subscription;
 
+    chapters = [
+        'Introduction',
+        'Colours',
+        'Typeface',
+        'Forms',
+        'Modals',
+        'Toastr',
+        'Libraries',
+        'Learning'
+    ];
+
     constructor(private conceptService: ConceptService) {
         this.conceptsNotesSubscription = this.conceptService.getConcepts().subscribe( data => this.concepts = data);
     }

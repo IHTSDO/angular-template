@@ -31,6 +31,7 @@ import {ModalComponent} from './components/modal/modal.component';
 import {LeftSidebarComponent} from './components/left-sidebar/left-sidebar.component';
 import {TextFilterPipe} from './pipes/text-filter/text-filter.pipe';
 import {ConceptService} from './services/concept/concept.service';
+import { MainViewComponent } from './components/main-view/main-view.component';
 
 // SERVICE IMPORTS
 
@@ -45,7 +46,8 @@ import {ConceptService} from './services/concept/concept.service';
         ProjectPipe,
         ModalComponent,
         LeftSidebarComponent,
-        TextFilterPipe
+        TextFilterPipe,
+        MainViewComponent
     ],
     imports: [
         BrowserModule,
