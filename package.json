@@ -30,11 +30,10 @@
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3",
     "echarts": "^5.4.3",
-    "flag-icons": "^6.11.2",
     "jquery": "^3.7.1",
     "ngx-clipboard": "^16.0.0",
     "ngx-echarts": "^16.1.2",
-    "ngx-toastr": "^17.0.2",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.6"
